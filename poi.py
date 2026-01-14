@@ -2,11 +2,12 @@ import asyncio
 import api_call
 from flask import request
 
-def getProducts():
-    response = asyncio.run(api_call.api_call('https://api.datatourisme.fr/v1/product'))
-    return readProducts(response)
 
-def getProductsNext():
+def getPOI():
+    response = asyncio.run(api_call.api_call('https://api.datatourisme.fr/v1/placeOfInterest'))
+    return readPOI(response)
+
+def getPOINext():
     #url
     url = request.args.get('url', type=str)
     if (url is None):
@@ -14,11 +15,9 @@ def getProductsNext():
         return { "error": message }, 400
 
     response = asyncio.run(api_call.api_call(url))
-    return readProducts(response)
-    
+    return readPOI(response)
 
-    
-def readProducts(response):
+def readPOI(response):
     r = {'data': [], 'meta': {}}
     nextPage = response['meta']
     cleanResponse(response, r['data'])
@@ -32,7 +31,7 @@ def readProducts(response):
 
 def cleanResponse(response: dict, r: list) -> list:
     for p in response['objects']:
-        #we only want products with main representation (image)
+        #we only want element with main representation (image)
         newProduct = {}
         if (p.get('hasMainRepresentation')):
             #uuid
@@ -68,7 +67,6 @@ def cleanResponse(response: dict, r: list) -> list:
                 addr['zip'] = subAddress.get('postalCode', '')
                 addr['city'] = subAddress.get('addressLocality', '')
                 addr['streetAddress'] = subAddress.get('streetAddress', '')
-
 
                 newProduct['address'] = addr
 
