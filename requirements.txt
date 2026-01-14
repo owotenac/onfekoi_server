@@ -1,0 +1,5 @@
+Flask
+aiohttp
+flask_cors
+requests
+cachetools
