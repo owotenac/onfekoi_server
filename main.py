@@ -1,8 +1,12 @@
 from tours import getTours
-from products import getProducts, getProductsNext
-from poi import getPOI, getPOINext
+from products import getProducts
+from poi import getPOI
+from events import getEvents
+from details import getDetails
 from flask_cors import CORS
 from flask import Flask
+from api_call import getNextPage
+
 app = Flask(__name__)
 
 
@@ -12,9 +16,11 @@ def index():
 
 app.add_url_rule('/api/tours', 'tours', getTours)
 app.add_url_rule('/api/products', 'products', getProducts)
-app.add_url_rule('/api/products_next', 'products_next', getProductsNext)
 app.add_url_rule('/api/poi', 'poi', getPOI)
-app.add_url_rule('/api/poi_next', 'poi_next', getPOINext)
+app.add_url_rule('/api/events', 'events', getEvents)
+app.add_url_rule('/api/tours', 'tours', getTours)
+app.add_url_rule('/api/next_page', 'next_page', getNextPage)
+app.add_url_rule('/api/details', 'details', getDetails)
 
 CORS(app, resources={
     r"/*": {

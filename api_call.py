@@ -1,8 +1,9 @@
 from cachetools import TTLCache
 import hashlib
 import aiohttp
-import requests
-from urllib.request import urlparse
+import asyncio
+import converter
+from flask import request
 
 # Create a cache with max 100 items, 1 hour TTL (3600 seconds)
 api_cache = TTLCache(maxsize=100, ttl=3600)
@@ -42,3 +43,38 @@ async def p_api_call(url: str):
             response.raise_for_status()
             data = await response.json()
             return data
+        
+
+def getNextPage():
+    #url
+    url = request.args.get('url', type=str)
+    if (url is None):
+        message = "url parameter is required"
+        return { "error": message }, 400
+
+    response = asyncio.run(api_call(url))
+    return readElements(response)
+
+import time
+
+def readElements(response):
+    start = time.time()
+    r = {'data': [], 'meta': {}}
+    nextPage = response.get('meta', {})
+    
+    r['data'].extend(converter.cleanResponses(response))
+    
+    while response['meta'].get('next') and len(r['data']) < 20:
+        response = asyncio.run(api_call(response['meta']['next']))
+        r['data'].extend(converter.cleanResponses(response))  
+        nextPage = response['meta']
+
+    r['meta'] = nextPage
+    end = time.time()    
+    print(f"Execution time: {end - start:.4f} seconds")
+    return r
+
+def readDetails(response):
+    
+    newResponse = converter.cleanResponse(response)
+    return newResponse
