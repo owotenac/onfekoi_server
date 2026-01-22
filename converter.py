@@ -30,59 +30,77 @@ def cleanResponses(response: dict) -> list:
 
 def cleanResponse(p: dict) -> list:
     #we only want products with main representation (image)
+    # Early return if no main representation
+    if not p.get('hasMainRepresentation'):
+        return {}
+
     newProduct = {}
-    if (p.get('hasMainRepresentation')):
-        #uuid
-        newProduct['uuid'] = p['uuid']
+    newProduct['uuid'] = p['uuid']
+    #name
+    newProduct['name'] = get_localized_text(p, 'label')
+    #image
+    newProduct['image'] = p['hasMainRepresentation'][0]['hasRelatedResource'][0]['locator'][0]
 
-        # description
-        if p.get('hasDescription') and len(p['hasDescription']) > 0:
-            desc = p['hasDescription'][0]
-            #description
-            newProduct['description'] = get_localized_text(desc, 'description')
-            newProduct['shortDescription'] = get_localized_text(desc, 'shortDescription')
+    # description
+    has_desc = p.get('hasDescription')
+    if has_desc and len(has_desc) > 0:
+        desc = has_desc[0]
+        #description
+        newProduct['description'] = get_localized_text(desc, 'description')
+        newProduct['shortDescription'] = get_localized_text(desc, 'shortDescription')
 
-        #name
-        newProduct['name'] = get_localized_text(p, 'label')
-        #image
-        newProduct['image'] = p['hasMainRepresentation'][0]['hasRelatedResource'][0]['locator'][0]
-        #contact
-        if p.get('hasContact') and len(p['hasContact']) > 0:
-            contact = p['hasContact'][0]
-            newProduct['contact'] = {'name': contact.get('legalName', '')}
-            
-            for field in ['telephone', 'email', 'homepage']:
-                if contact.get(field):
-                    newProduct['contact'][field] = contact[field][0]
-        #created by
-        if p.get('hasBeenCreatedBy'):
-            newProduct['createdBy'] = p['hasBeenCreatedBy']['legalName'][5:] #because we remove the 34 - departement code
+    #contact
+    has_contact = p.get('hasContact')
+    if has_contact and len(has_contact) > 0:
+        contact = has_contact[0]
+        newProduct['contact'] = {'name': contact.get('legalName', '')}
+        
+        for field in ['telephone', 'email', 'homepage']:
+            if field in contact:
+                newProduct['contact'][field] = contact[field][0]
+    #created by
+    created_by = p.get('hasBeenCreatedBy')
+    if created_by:
+        newProduct['createdBy'] = created_by['legalName'][5:] #because we remove the 34 - departement code
 
-        #address
-        if (p.get('isLocatedAt')):
-            location = extract_location(p)
-            if location:
-                newProduct['address'] = location
+    #address
+    isLocatedAt = p.get('isLocatedAt')
+    if (isLocatedAt):
+        location = extract_location(p)
+        if location:
+            newProduct['address'] = location
+        #opening hours are located in isLocatedAt
+        opening = extract_openingInfo(isLocatedAt[0])
+        if opening:
+            newProduct['openingInfo'] = opening
 
-        #offer
-        if (p.get('offers')):
-            offer = p['offers']
-            payment_methods = extract_payment_methods(offer[0])
-            if payment_methods:
-                newProduct['acceptedPaymentMethod'] = payment_methods
+    #offer
+    offers = p.get('offers')
+    if offers and len(offers) > 0:
+        offer = offers[0]
+        payment_methods = extract_methods(offer, 'acceptedPaymentMethod')
+        if payment_methods:
+            newProduct['acceptedPaymentMethod'] = payment_methods
 
-        #picture
-        if (p.get('hasRepresentation')):
-            representations = extract_representations(p)
-            if representations:
-                newProduct['hasRepresentation'] = representations
+    #picture
+    if (p.get('hasRepresentation')):
+        representations = extract_representations(p)
+        if representations:
+            newProduct['hasRepresentation'] = representations
+
+    features = p.get('hasFeature')
+    if (features) and len(features) > 0:
+        f = features[0]
+        feature_methods = extract_methods(f, 'features')
+        if feature_methods:
+            newProduct['features'] = feature_methods
 
     return newProduct
 
 
-def extract_payment_methods(data, lang='@fr'):
-    """Extract payment methods as a list of {label, key} dicts."""
-    methods = data.get('acceptedPaymentMethod', [])
+def extract_methods(data, key, lang='@fr'):
+    """Extract methods as a list of {label, key} dicts."""
+    methods = data.get(key, [])
     
     return [
         {
@@ -174,6 +192,29 @@ def extract_location(data, lang='@fr'):
         result['streetAddress'] = street_address
         result['zip'] = addr.get('postalCode', '')
         result['city'] = addr.get('addressLocality', '')
+
+    
     
     # Only return if we have at least some data
     return result if result else None
+
+def extract_openingInfo(data, lang='@fr'):
+    """Extract opening Info """
+    node = data.get('openingHoursSpecification')
+    if not node or len(node) == 0:
+        return None
+    
+    openingInfo = node[0]
+    if not isinstance(openingInfo, dict):
+        return None
+    
+    info = ''
+    if openingInfo.get('additionalInformation') and isinstance(openingInfo['additionalInformation'], dict):
+        info = openingInfo['additionalInformation'].get(lang, '')
+
+    result = {}
+    result['validFrom'] = openingInfo['validFrom']
+    result['validThrough'] = openingInfo['validThrough']
+    result['additionalInformation'] = info
+
+    return result

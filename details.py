@@ -9,5 +9,7 @@ def getDetails():
         message = "uuid parameter is required"
         return { "error": message }, 400
         
-    response = asyncio.run(api_call.api_call(f'https://api.datatourisme.fr/v1/catalog/{uuid}'))
+    response = asyncio.run(api_call.api_call(f'https://api.datatourisme.fr/v1/catalog/{uuid}', {
+        "fields" : "uuid,label,hasMainRepresentation,hasDescription,hasContact,hasBeenCreatedBy,isLocatedAt,hasRepresentation,hasFeature"
+    }))
     return api_call.readDetails(response)
