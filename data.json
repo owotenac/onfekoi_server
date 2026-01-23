@@ -1,0 +1,1538 @@
+[
+    {
+        "key": "ATM",
+        "label": "Distributeur automatique de billets, DAB"
+    },
+    {
+        "key": "Abbey",
+        "label": "Abbaye"
+    },
+    {
+        "key": "Accommodation",
+        "label": "H\u00e9bergement"
+    },
+    {
+        "key": "AccommodationProduct",
+        "label": "Produit d'h\u00e9bergement"
+    },
+    {
+        "key": "AccompaniedPractice",
+        "label": "Accompagnement"
+    },
+    {
+        "key": "ActivityProvider",
+        "label": "Prestataire d'activit\u00e9"
+    },
+    {
+        "key": "AdventurePark",
+        "label": "Parc aventure - accrobranche"
+    },
+    {
+        "key": "Airfield",
+        "label": "A\u00e9rodr\u00f4me"
+    },
+    {
+        "key": "Airport",
+        "label": "A\u00e9roport"
+    },
+    {
+        "key": "AlpinePasture",
+        "label": "Alpage"
+    },
+    {
+        "key": "AntiqueAndSecondhandGoodDealer",
+        "label": "Antiquaire et brocanteur"
+    },
+    {
+        "key": "Apartment",
+        "label": "Appartement"
+    },
+    {
+        "key": "Aqueduct",
+        "label": "Aqueduc"
+    },
+    {
+        "key": "ArcheologicalSite",
+        "label": "Site arch\u00e9ologique"
+    },
+    {
+        "key": "Arena",
+        "label": "Ar\u00e8ne"
+    },
+    {
+        "key": "ArtGalleryOrExhibitionGallery",
+        "label": "Galerie d'art, galerie d'exposition"
+    },
+    {
+        "key": "ArtistSigning",
+        "label": "D\u00e9dicace et rencontre d'artiste"
+    },
+    {
+        "key": "Auditorium",
+        "label": "Auditorium"
+    },
+    {
+        "key": "Bakery",
+        "label": "Boulangerie"
+    },
+    {
+        "key": "BalneotherapyCentre",
+        "label": "Centre de baln\u00e9oth\u00e9rapie"
+    },
+    {
+        "key": "BarOrPub",
+        "label": "Bar, bar \u00e0 th\u00e8me"
+    },
+    {
+        "key": "Basilica",
+        "label": "Basilique"
+    },
+    {
+        "key": "Bastide",
+        "label": "Bastide"
+    },
+    {
+        "key": "Beach",
+        "label": "Plage"
+    },
+    {
+        "key": "BeachClub",
+        "label": "Club de plage"
+    },
+    {
+        "key": "Bed",
+        "label": "Lit"
+    },
+    {
+        "key": "BikeStationOrDepot",
+        "label": "Station ou d\u00e9p\u00f4t de v\u00e9lo"
+    },
+    {
+        "key": "BilliardRoom",
+        "label": "Salle de billard"
+    },
+    {
+        "key": "Bishopric",
+        "label": "Ev\u00e9ch\u00e9"
+    },
+    {
+        "key": "BistroOrWineBar",
+        "label": "Bistrot - Bar \u00e0 vin"
+    },
+    {
+        "key": "BoardMeeting",
+        "label": "Conseil d'administration"
+    },
+    {
+        "key": "BoatRestaurant",
+        "label": "Bateau-restaurant"
+    },
+    {
+        "key": "Bocage",
+        "label": "Bocage"
+    },
+    {
+        "key": "Bog",
+        "label": "Tourbi\u00e8re"
+    },
+    {
+        "key": "BoulesPitch",
+        "label": "Boulodrome"
+    },
+    {
+        "key": "BoutiqueOrLocalShop",
+        "label": "Boutique, commerce de proximit\u00e9"
+    },
+    {
+        "key": "BowlingAlley",
+        "label": "Bowling"
+    },
+    {
+        "key": "BrasserieOrTavern",
+        "label": "Brasserie ou taverne"
+    },
+    {
+        "key": "Brewery",
+        "label": "Brasseur"
+    },
+    {
+        "key": "BricABrac",
+        "label": "Brocante"
+    },
+    {
+        "key": "Bridge",
+        "label": "Pont"
+    },
+    {
+        "key": "Bubble",
+        "label": "Bulle"
+    },
+    {
+        "key": "BuddhistTemple",
+        "label": "Temple bouddhique"
+    },
+    {
+        "key": "Bungalow",
+        "label": "Bungalow, Mobil Home"
+    },
+    {
+        "key": "Bungatoile",
+        "label": "Bungatoile"
+    },
+    {
+        "key": "BusStation",
+        "label": "Gare routi\u00e8re"
+    },
+    {
+        "key": "BusStop",
+        "label": "Arr\u00eat, station de transport en commun"
+    },
+    {
+        "key": "BusinessEvent",
+        "label": "Ev\u00e8nement professionnel d'entreprise"
+    },
+    {
+        "key": "BusinessPlace",
+        "label": "Site d'affaires"
+    },
+    {
+        "key": "Cabaret",
+        "label": "Cabaret"
+    },
+    {
+        "key": "CableCarStation",
+        "label": "T\u00e9l\u00e9ph\u00e9rique"
+    },
+    {
+        "key": "CafeOrTeahouse",
+        "label": "Caf\u00e9 ou salon de th\u00e9"
+    },
+    {
+        "key": "Calvary",
+        "label": "Calvaire et enclos paroissiaux"
+    },
+    {
+        "key": "CamperVanArea",
+        "label": "Aire de camping-car"
+    },
+    {
+        "key": "Camping",
+        "label": "Camping"
+    },
+    {
+        "key": "CampingAndCaravanning",
+        "label": "H\u00f4tellerie de plein air"
+    },
+    {
+        "key": "CampingCar",
+        "label": "Camping car"
+    },
+    {
+        "key": "CampingPitch",
+        "label": "Emplacement de camping"
+    },
+    {
+        "key": "Canal",
+        "label": "Canal"
+    },
+    {
+        "key": "Canyon",
+        "label": "Canyon"
+    },
+    {
+        "key": "CarOrBikeWash",
+        "label": "Station de lavage"
+    },
+    {
+        "key": "Caravan",
+        "label": "Caravane"
+    },
+    {
+        "key": "Carnival",
+        "label": "Carnaval"
+    },
+    {
+        "key": "CarpoolArea",
+        "label": "Aire de covoiturage"
+    },
+    {
+        "key": "Casino",
+        "label": "Casino"
+    },
+    {
+        "key": "Castle",
+        "label": "Ch\u00e2teau"
+    },
+    {
+        "key": "CastleAndPrestigeMansion",
+        "label": "Ch\u00e2teau et demeure de prestige"
+    },
+    {
+        "key": "Cathedral",
+        "label": "Cath\u00e9drale"
+    },
+    {
+        "key": "Causse",
+        "label": "Causse"
+    },
+    {
+        "key": "CaveSinkholeOrAven",
+        "label": "Grotte, gouffre, aven, caverne, carri\u00e8re"
+    },
+    {
+        "key": "Cellar",
+        "label": "Cave ou caveau"
+    },
+    {
+        "key": "Chalet",
+        "label": "Chalet"
+    },
+    {
+        "key": "ChalkyLawn",
+        "label": "Pelouse calcaire"
+    },
+    {
+        "key": "ChamberOfCommerceAndIndustry",
+        "label": "Chambre de commerce et d'industrie"
+    },
+    {
+        "key": "Chapel",
+        "label": "Chapelle"
+    },
+    {
+        "key": "Chartreuse",
+        "label": "Chartreuse"
+    },
+    {
+        "key": "ChildrensEvent",
+        "label": "Ev\u00e8nement jeune public"
+    },
+    {
+        "key": "ChildrensGite",
+        "label": "G\u00eete d'enfants"
+    },
+    {
+        "key": "Church",
+        "label": "Eglise"
+    },
+    {
+        "key": "Cinema",
+        "label": "Cin\u00e9ma"
+    },
+    {
+        "key": "Cinematheque",
+        "label": "Cin\u00e9math\u00e8que"
+    },
+    {
+        "key": "CircusPlace",
+        "label": "Cirque"
+    },
+    {
+        "key": "Cirque",
+        "label": "Cirque naturel"
+    },
+    {
+        "key": "Citadel",
+        "label": "Citadelle"
+    },
+    {
+        "key": "CityHeritage",
+        "label": "Ville et village"
+    },
+    {
+        "key": "CivilCemetery",
+        "label": "Cimeti\u00e8re civil"
+    },
+    {
+        "key": "Cliff",
+        "label": "Falaise"
+    },
+    {
+        "key": "ClimbingWall",
+        "label": "Site et mur d'escalade"
+    },
+    {
+        "key": "Cloister",
+        "label": "Clo\u00eetre"
+    },
+    {
+        "key": "ClubOrHolidayVillage",
+        "label": "Club et village vacances"
+    },
+    {
+        "key": "Coastline",
+        "label": "C\u00f4te, littoral"
+    },
+    {
+        "key": "Col",
+        "label": "Col"
+    },
+    {
+        "key": "CollectiveAccommodation",
+        "label": "H\u00e9bergement collectif"
+    },
+    {
+        "key": "CollectiveHostel",
+        "label": "Auberge collective"
+    },
+    {
+        "key": "Collegiate",
+        "label": "Coll\u00e9giale"
+    },
+    {
+        "key": "Commanderie",
+        "label": "Commanderie"
+    },
+    {
+        "key": "Commemoration",
+        "label": "Comm\u00e9moration"
+    },
+    {
+        "key": "Competition",
+        "label": "Comp\u00e9tition"
+    },
+    {
+        "key": "Concert",
+        "label": "Concert"
+    },
+    {
+        "key": "ConeNeck",
+        "label": "C\u00f4ne"
+    },
+    {
+        "key": "Conference",
+        "label": "Conf\u00e9rence"
+    },
+    {
+        "key": "Congress",
+        "label": "Congr\u00e8s"
+    },
+    {
+        "key": "ConvenientService",
+        "label": "Service pratique"
+    },
+    {
+        "key": "Convent",
+        "label": "Couvent"
+    },
+    {
+        "key": "ConventionCentre",
+        "label": "Centre de congr\u00e8s"
+    },
+    {
+        "key": "Cooperative",
+        "label": "Coop\u00e9rative"
+    },
+    {
+        "key": "Course",
+        "label": "Cours"
+    },
+    {
+        "key": "CoveredMarket",
+        "label": "Halle, march\u00e9 couvert"
+    },
+    {
+        "key": "CraftsmanShop",
+        "label": "Artisan d'art"
+    },
+    {
+        "key": "Crest",
+        "label": "Cr\u00eate"
+    },
+    {
+        "key": "CrossCountrySkiResort",
+        "label": "Domaine de ski nordique"
+    },
+    {
+        "key": "CrossCountrySkiTrail",
+        "label": "Piste de ski de fond"
+    },
+    {
+        "key": "Cuesta",
+        "label": "Cuesta"
+    },
+    {
+        "key": "CulturalActivityProvider",
+        "label": "Prestataire d'activit\u00e9 culturelle"
+    },
+    {
+        "key": "CulturalEvent",
+        "label": "\u00c9v\u00e8nement culturel"
+    },
+    {
+        "key": "CulturalSite",
+        "label": "Site culturel"
+    },
+    {
+        "key": "Culture",
+        "label": "Culture"
+    },
+    {
+        "key": "Cybercafe",
+        "label": "Cybercaf\u00e9"
+    },
+    {
+        "key": "CyclingTour",
+        "label": "Itin\u00e9raire cyclable"
+    },
+    {
+        "key": "DefenceSite",
+        "label": "Site de d\u00e9fense"
+    },
+    {
+        "key": "DepartementTourismCommittee",
+        "label": "Comit\u00e9 d\u00e9partemental du tourisme"
+    },
+    {
+        "key": "DepartmentStore",
+        "label": "Grand magasin"
+    },
+    {
+        "key": "DevelopmentCourse",
+        "label": "Stage de perfectionnement"
+    },
+    {
+        "key": "Distillery",
+        "label": "Distillerie"
+    },
+    {
+        "key": "District",
+        "label": "Quartier"
+    },
+    {
+        "key": "DogSleddingTrail",
+        "label": "Piste de chien de traineau"
+    },
+    {
+        "key": "DownhillSkiResort",
+        "label": "Domaine de ski alpin"
+    },
+    {
+        "key": "DownhillSkiRun",
+        "label": "Piste de ski alpin"
+    },
+    {
+        "key": "Dune",
+        "label": "Dune"
+    },
+    {
+        "key": "Dungeon",
+        "label": "Donjon"
+    },
+    {
+        "key": "EducationalTrail",
+        "label": "Sentier de d\u00e9couverte et d'interpr\u00e9tation"
+    },
+    {
+        "key": "ElectricBycicleChargingPoint",
+        "label": "Borne de charge \u00e9lectrique pour v\u00e9lo, vtt"
+    },
+    {
+        "key": "ElectricVehicleChargingPoint",
+        "label": "Borne de charge v\u00e9hicule \u00e9lectrique"
+    },
+    {
+        "key": "EntertainmentAndEvent",
+        "label": "F\u00eate et manifestation"
+    },
+    {
+        "key": "EquestrianCenter",
+        "label": "Centre \u00e9questre"
+    },
+    {
+        "key": "EquipmentRental",
+        "label": "Location de mat\u00e9riel"
+    },
+    {
+        "key": "EquipmentRentalShop",
+        "label": "Loueur de mat\u00e9riel"
+    },
+    {
+        "key": "EquipmentRepairShop",
+        "label": "R\u00e9parateur de mat\u00e9riel"
+    },
+    {
+        "key": "ExecutiveBoardMeeting",
+        "label": "Bureau \u00e9x\u00e9cutif"
+    },
+    {
+        "key": "Exhibition",
+        "label": "Exposition"
+    },
+    {
+        "key": "FairOrShow",
+        "label": "Foire ou salon"
+    },
+    {
+        "key": "Farm",
+        "label": "Ferme"
+    },
+    {
+        "key": "FarmCamping",
+        "label": "Camping \u00e0 la ferme"
+    },
+    {
+        "key": "Farmer",
+        "label": "\u00c9leveur"
+    },
+    {
+        "key": "FarmhouseInn",
+        "label": "Ferme et auberge de campagne"
+    },
+    {
+        "key": "FastFoodRestaurant",
+        "label": "Restauration Rapide"
+    },
+    {
+        "key": "Festival",
+        "label": "Festival"
+    },
+    {
+        "key": "FirstPractice",
+        "label": "Bapt\u00eame sportif"
+    },
+    {
+        "key": "FitnessCenter",
+        "label": "Centre de remise en forme - fitness"
+    },
+    {
+        "key": "FitnessPath",
+        "label": "Parcours de Sant\u00e9"
+    },
+    {
+        "key": "FluvialTour",
+        "label": "Itin\u00e9raire fluvial ou maritime"
+    },
+    {
+        "key": "FoodEstablishment",
+        "label": "Restauration"
+    },
+    {
+        "key": "Forest",
+        "label": "For\u00eat"
+    },
+    {
+        "key": "Forge",
+        "label": "Forge"
+    },
+    {
+        "key": "Fort",
+        "label": "Fort"
+    },
+    {
+        "key": "FortifiedCastle",
+        "label": "Ch\u00e2teau fort"
+    },
+    {
+        "key": "FortifiedSet",
+        "label": "Ensemble fortifi\u00e9"
+    },
+    {
+        "key": "Fountain",
+        "label": "Fontaine"
+    },
+    {
+        "key": "FreePractice",
+        "label": "Pratique libre"
+    },
+    {
+        "key": "FrontonBelotaCourt",
+        "label": "Fronton, mur de frappe"
+    },
+    {
+        "key": "Game",
+        "label": "Jeu, concours"
+    },
+    {
+        "key": "GarageOrAirPump",
+        "label": "Borne ou station de r\u00e9paration - gonflage"
+    },
+    {
+        "key": "GarageSale",
+        "label": "Vide-grenier"
+    },
+    {
+        "key": "Glacier",
+        "label": "Glacier de montagne"
+    },
+    {
+        "key": "GolfCourse",
+        "label": "Terrain de golf"
+    },
+    {
+        "key": "Gorge",
+        "label": "Gorge"
+    },
+    {
+        "key": "GourmetRestaurant",
+        "label": "Restaurant gastronomique"
+    },
+    {
+        "key": "Grassland",
+        "label": "Prairie"
+    },
+    {
+        "key": "GroupLodging",
+        "label": "G\u00eete de groupe"
+    },
+    {
+        "key": "Guesthouse",
+        "label": "Chambre d'h\u00f4tes"
+    },
+    {
+        "key": "Gymnasium",
+        "label": "Salle ou terrain de sport, gymnase"
+    },
+    {
+        "key": "HalophilicArea",
+        "label": "Zone halophile"
+    },
+    {
+        "key": "Hammam",
+        "label": "Hammam"
+    },
+    {
+        "key": "Harvest",
+        "label": "Vendange, r\u00e9colte"
+    },
+    {
+        "key": "HealthcarePlace",
+        "label": "Lieu de soins"
+    },
+    {
+        "key": "HealthcareProfessional",
+        "label": "Professionnel de sant\u00e9"
+    },
+    {
+        "key": "Hillsides",
+        "label": "C\u00f4teau"
+    },
+    {
+        "key": "HolidayCentre",
+        "label": "Centre de vacances et de loisirs"
+    },
+    {
+        "key": "HolidayResort",
+        "label": "R\u00e9sidence de tourisme"
+    },
+    {
+        "key": "HorseTour",
+        "label": "Itin\u00e9raire \u00e9questre"
+    },
+    {
+        "key": "Hotel",
+        "label": "H\u00f4tel"
+    },
+    {
+        "key": "HotelRestaurant",
+        "label": "H\u00f4tel-restaurant"
+    },
+    {
+        "key": "HotelSuite",
+        "label": "Suite"
+    },
+    {
+        "key": "HotelTrade",
+        "label": "H\u00f4tellerie"
+    },
+    {
+        "key": "House",
+        "label": "Maison"
+    },
+    {
+        "key": "HouseBoat",
+        "label": "B\u00e2teau habitable"
+    },
+    {
+        "key": "Hut",
+        "label": "Cabane"
+    },
+    {
+        "key": "HypermarketAndSupermarket",
+        "label": "Grande et moyenne surface"
+    },
+    {
+        "key": "IceCreamShop",
+        "label": "Glacier"
+    },
+    {
+        "key": "IceSkatingRink",
+        "label": "Patinoire"
+    },
+    {
+        "key": "Icefall",
+        "label": "Cascade de glace"
+    },
+    {
+        "key": "IncomingTravelAgency",
+        "label": "Organisme r\u00e9ceptif"
+    },
+    {
+        "key": "IndustrialSite",
+        "label": "Site industriel"
+    },
+    {
+        "key": "InterpretationCentre",
+        "label": "Centre d'interpr\u00e9tation"
+    },
+    {
+        "key": "IntroductionCourse",
+        "label": "Stage d'initiation"
+    },
+    {
+        "key": "IslandPeninsula",
+        "label": "Ile - presqu'\u00eele"
+    },
+    {
+        "key": "Jetty",
+        "label": "Embarcad\u00e8re"
+    },
+    {
+        "key": "KidsClub",
+        "label": "Club enfants"
+    },
+    {
+        "key": "Lake",
+        "label": "Lac"
+    },
+    {
+        "key": "Landes",
+        "label": "Landes"
+    },
+    {
+        "key": "LaunchingRamp",
+        "label": "Rampe de mise \u00e0 l'eau"
+    },
+    {
+        "key": "LeftLuggage",
+        "label": "Consigne \u00e0 bagages"
+    },
+    {
+        "key": "LeisureChalet",
+        "label": "Chalet r\u00e9sidentiel de loisirs"
+    },
+    {
+        "key": "LeisureComplex",
+        "label": "Complexe de loisirs (loisirs regroup\u00e9s)"
+    },
+    {
+        "key": "LeisureSportActivityProvider",
+        "label": "Prestataire d'activit\u00e9 sportive et de loisir"
+    },
+    {
+        "key": "LevyOrDike",
+        "label": "Barrage, digue"
+    },
+    {
+        "key": "Library",
+        "label": "Biblioth\u00e8que - M\u00e9diath\u00e8que"
+    },
+    {
+        "key": "Lighthouse",
+        "label": "Phare"
+    },
+    {
+        "key": "LocalAnimation",
+        "label": "Animation locale"
+    },
+    {
+        "key": "LocalProductsShop",
+        "label": "Maison de pays, produits du terroir"
+    },
+    {
+        "key": "LocalTouristOffice",
+        "label": "Office de tourisme"
+    },
+    {
+        "key": "Lock",
+        "label": "Ecluse"
+    },
+    {
+        "key": "Marina",
+        "label": "Port de plaisance"
+    },
+    {
+        "key": "Market",
+        "label": "March\u00e9"
+    },
+    {
+        "key": "MedicalPlace",
+        "label": "Lieu de sant\u00e9"
+    },
+    {
+        "key": "MegalithDolmenMenhir",
+        "label": "M\u00e9galithes, menhirs et dolmens"
+    },
+    {
+        "key": "MilitaryCemetery",
+        "label": "Cimeti\u00e8re militaire et m\u00e9morial"
+    },
+    {
+        "key": "Mill",
+        "label": "Moulin"
+    },
+    {
+        "key": "Mine",
+        "label": "Mine"
+    },
+    {
+        "key": "MiniGolf",
+        "label": "Mini golf"
+    },
+    {
+        "key": "Monastery",
+        "label": "Monast\u00e8re, prieur\u00e9"
+    },
+    {
+        "key": "MooringArea",
+        "label": "Zone ou port de mouillage"
+    },
+    {
+        "key": "Mosque",
+        "label": "Mosqu\u00e9e"
+    },
+    {
+        "key": "Mountain",
+        "label": "Montagne"
+    },
+    {
+        "key": "MountainResort",
+        "label": "Station de montagne"
+    },
+    {
+        "key": "MountainRestaurant",
+        "label": "Restaurant d'altitude / Restaurant d'alpage"
+    },
+    {
+        "key": "MultiActivity",
+        "label": "Multiactivit\u00e9s"
+    },
+    {
+        "key": "MultiPurposeRoomOrCommunityRoom",
+        "label": "Salle polyvalente, salle des f\u00eates"
+    },
+    {
+        "key": "Museum",
+        "label": "Mus\u00e9e"
+    },
+    {
+        "key": "NaturalCampingArea",
+        "label": "Aire naturelle de camping"
+    },
+    {
+        "key": "NaturalCuriosity",
+        "label": "Curiosit\u00e9 naturelle"
+    },
+    {
+        "key": "NaturalHeritage",
+        "label": "Site naturel"
+    },
+    {
+        "key": "NaturalPark",
+        "label": "Parc naturel"
+    },
+    {
+        "key": "NauticalCentre",
+        "label": "Base nautique / centre nautique"
+    },
+    {
+        "key": "NightClub",
+        "label": "Discoth\u00e8que"
+    },
+    {
+        "key": "NonHousingRealEstateRental",
+        "label": "Location de salle"
+    },
+    {
+        "key": "OpenDay",
+        "label": "Portes ouvertes"
+    },
+    {
+        "key": "Opera",
+        "label": "Op\u00e9ra (spectacle)"
+    },
+    {
+        "key": "OperaHouse",
+        "label": "Op\u00e9ra (salle)"
+    },
+    {
+        "key": "Orchard",
+        "label": "Verger conservatoire"
+    },
+    {
+        "key": "OutstandingTree",
+        "label": "Arbre remarquable"
+    },
+    {
+        "key": "Palace",
+        "label": "Palais"
+    },
+    {
+        "key": "Parade",
+        "label": "D\u00e9fil\u00e9 Cort\u00e8ge Parade"
+    },
+    {
+        "key": "ParkAndGarden",
+        "label": "Parc et jardin"
+    },
+    {
+        "key": "Parking",
+        "label": "Parking"
+    },
+    {
+        "key": "Peak",
+        "label": "Pic"
+    },
+    {
+        "key": "Pharmacy",
+        "label": "Pharmacie"
+    },
+    {
+        "key": "PicnicArea",
+        "label": "Aire de pique-nique"
+    },
+    {
+        "key": "Pier",
+        "label": "Jet\u00e9e"
+    },
+    {
+        "key": "PigeonLoft",
+        "label": "Pigeonnier"
+    },
+    {
+        "key": "PilgrimageAndProcession",
+        "label": "P\u00e8lerinage et procession"
+    },
+    {
+        "key": "PlaceOfInterest",
+        "label": "Lieu"
+    },
+    {
+        "key": "Plain",
+        "label": "Plaine"
+    },
+    {
+        "key": "Plateau",
+        "label": "Plateau"
+    },
+    {
+        "key": "PlayArea",
+        "label": "Aire de jeux"
+    },
+    {
+        "key": "PointOfInterest",
+        "label": "Point d'int\u00e9r\u00eat"
+    },
+    {
+        "key": "PointOfView",
+        "label": "Point de vue"
+    },
+    {
+        "key": "Pond",
+        "label": "Etang"
+    },
+    {
+        "key": "Practice",
+        "label": "Pratique"
+    },
+    {
+        "key": "Producer",
+        "label": "Producteur"
+    },
+    {
+        "key": "ProducersGroup",
+        "label": "Groupement de producteurs"
+    },
+    {
+        "key": "Product",
+        "label": "Produit"
+    },
+    {
+        "key": "ProfessionalTourGuide",
+        "label": "Guide professionnel"
+    },
+    {
+        "key": "PublicLavatories",
+        "label": "Toilettes publiques"
+    },
+    {
+        "key": "RVServiceArea",
+        "label": "Borne de service camping car"
+    },
+    {
+        "key": "Racetrack",
+        "label": "Hippodrome"
+    },
+    {
+        "key": "RacingCircuit",
+        "label": "Circuit automobile ou moto"
+    },
+    {
+        "key": "RailBike",
+        "label": "V\u00e9lorail"
+    },
+    {
+        "key": "Rally",
+        "label": "Rallye"
+    },
+    {
+        "key": "Rambling",
+        "label": "Randonn\u00e9e, balade"
+    },
+    {
+        "key": "Reading",
+        "label": "Lecture"
+    },
+    {
+        "key": "Recital",
+        "label": "R\u00e9cital"
+    },
+    {
+        "key": "RegionalTourismCommittee",
+        "label": "Comit\u00e9 r\u00e9gional du tourisme"
+    },
+    {
+        "key": "ReligiousEvent",
+        "label": "\u00c9v\u00e8nement religieux"
+    },
+    {
+        "key": "ReligiousSite",
+        "label": "Site religieux"
+    },
+    {
+        "key": "RemarkableBuilding",
+        "label": "B\u00e2timent civil remarquable"
+    },
+    {
+        "key": "RemarkableHouse",
+        "label": "Maison remarquable"
+    },
+    {
+        "key": "RemembranceSite",
+        "label": "Lieu de m\u00e9moire"
+    },
+    {
+        "key": "Rental",
+        "label": "Location"
+    },
+    {
+        "key": "RentalAccommodation",
+        "label": "H\u00e9bergement locatif"
+    },
+    {
+        "key": "ResidentialLeisurePark",
+        "label": "Parc r\u00e9sidentiel de loisirs"
+    },
+    {
+        "key": "RestStop",
+        "label": "Halte de repos"
+    },
+    {
+        "key": "Restaurant",
+        "label": "Restaurant"
+    },
+    {
+        "key": "River",
+        "label": "Rivi\u00e8re ou fleuve"
+    },
+    {
+        "key": "RiverPort",
+        "label": "Halte et port fluvial"
+    },
+    {
+        "key": "RoadTour",
+        "label": "Itin\u00e9raire routier"
+    },
+    {
+        "key": "RomanPath",
+        "label": "Voie romaine"
+    },
+    {
+        "key": "Room",
+        "label": "Chambre"
+    },
+    {
+        "key": "Ruins",
+        "label": "Ruines et vestiges"
+    },
+    {
+        "key": "SaleEvent",
+        "label": "Ev\u00e8nement commercial"
+    },
+    {
+        "key": "SchoolOrTrainingCentre",
+        "label": "Ecole et centre d'apprentissage"
+    },
+    {
+        "key": "ScreeningEvent",
+        "label": "Projection, cin\u00e9ma"
+    },
+    {
+        "key": "Seaport",
+        "label": "Port maritime"
+    },
+    {
+        "key": "SelfCateringAccommodation",
+        "label": "Meubl\u00e9s de tourisme"
+    },
+    {
+        "key": "SelfServiceCafeteria",
+        "label": "Caf\u00e9t\u00e9ria - Self"
+    },
+    {
+        "key": "Seminar",
+        "label": "S\u00e9minaire"
+    },
+    {
+        "key": "ServiceArea",
+        "label": "Aire de service"
+    },
+    {
+        "key": "ServiceProvider",
+        "label": "Prestataire de service"
+    },
+    {
+        "key": "ShoppingCentreAndGallery",
+        "label": "Centre et galerie commerciale"
+    },
+    {
+        "key": "ShowEvent",
+        "label": "Spectacle"
+    },
+    {
+        "key": "SightseeingBoat",
+        "label": "Bateau promenade"
+    },
+    {
+        "key": "SmallCulturalHeritage",
+        "label": "Petit patrimoine culturel"
+    },
+    {
+        "key": "SocialEvent",
+        "label": "Ev\u00e8nement social"
+    },
+    {
+        "key": "Source",
+        "label": "Source"
+    },
+    {
+        "key": "Spa",
+        "label": "Etablissement thermal"
+    },
+    {
+        "key": "SpaResort",
+        "label": "Station thermale"
+    },
+    {
+        "key": "SportsAndLeisurePlace",
+        "label": "Site sportif, r\u00e9cr\u00e9atif et de loisirs"
+    },
+    {
+        "key": "SportsClub",
+        "label": "Club de sport"
+    },
+    {
+        "key": "SportsCompetition",
+        "label": "Comp\u00e9tition sportive"
+    },
+    {
+        "key": "SportsDemonstration",
+        "label": "D\u00e9monstration sportive"
+    },
+    {
+        "key": "SportsEvent",
+        "label": "\u00c9v\u00e8nement sports et loisirs"
+    },
+    {
+        "key": "SportsHall",
+        "label": "Palais des sports"
+    },
+    {
+        "key": "SquashCourt",
+        "label": "Salle de squash"
+    },
+    {
+        "key": "Stables",
+        "label": "Haras"
+    },
+    {
+        "key": "Stadium",
+        "label": "Stade"
+    },
+    {
+        "key": "Stone",
+        "label": "Pierre, rocher"
+    },
+    {
+        "key": "StopOverOrGroupLodge",
+        "label": "Refuge et g\u00eete d'\u00e9tape"
+    },
+    {
+        "key": "Store",
+        "label": "Commerce de d\u00e9tail"
+    },
+    {
+        "key": "Stream",
+        "label": "Ruisseau"
+    },
+    {
+        "key": "StreetFood",
+        "label": "Restauration ambulante, Food truck"
+    },
+    {
+        "key": "StubbleFields",
+        "label": "Chaumes"
+    },
+    {
+        "key": "SummerToboggan",
+        "label": "Piste de luge d'\u00e9t\u00e9"
+    },
+    {
+        "key": "Summit",
+        "label": "Sommet"
+    },
+    {
+        "key": "Swamp",
+        "label": "Marais"
+    },
+    {
+        "key": "SwimmingPool",
+        "label": "Piscine"
+    },
+    {
+        "key": "Synagogue",
+        "label": "Synagogue"
+    },
+    {
+        "key": "TableHoteGuesthouse",
+        "label": "Chambre et table d'h\u00f4tes"
+    },
+    {
+        "key": "TableHotes",
+        "label": "Table d'h\u00f4tes"
+    },
+    {
+        "key": "Tasting",
+        "label": "D\u00e9gustation"
+    },
+    {
+        "key": "TastingProvider",
+        "label": "Fournisseur de d\u00e9gustation"
+    },
+    {
+        "key": "TaxiCompany",
+        "label": "Compagnie de taxis"
+    },
+    {
+        "key": "TaxiStation",
+        "label": "Aire, station de taxis"
+    },
+    {
+        "key": "TeachingFarm",
+        "label": "Ferme p\u00e9dagogique"
+    },
+    {
+        "key": "TechnicalHeritage",
+        "label": "Patrimoine industriel, artisanal, rural, agricole et technique"
+    },
+    {
+        "key": "Temple",
+        "label": "Temple"
+    },
+    {
+        "key": "TennisComplex",
+        "label": "Compl\u00e8xe ou terrain de tennis"
+    },
+    {
+        "key": "Tent",
+        "label": "Tente"
+    },
+    {
+        "key": "TerrainPark",
+        "label": "Snowpark"
+    },
+    {
+        "key": "ThalassotherapyCentre",
+        "label": "Centre de thalassoth\u00e9rapie"
+    },
+    {
+        "key": "Theater",
+        "label": "Th\u00e9atre, Salle de spectacle"
+    },
+    {
+        "key": "TheaterEvent",
+        "label": "Pi\u00e8ce de th\u00e9\u00e2tre"
+    },
+    {
+        "key": "ThemePark",
+        "label": "Parc de loisirs, parc \u00e0 th\u00e8me"
+    },
+    {
+        "key": "Tipi",
+        "label": "Tipi"
+    },
+    {
+        "key": "TobogganBobsleigh",
+        "label": "Piste de luge / bobsleigh"
+    },
+    {
+        "key": "Tour",
+        "label": "Itin\u00e9raire touristique"
+    },
+    {
+        "key": "TourGuideAgency",
+        "label": "Agence de guides"
+    },
+    {
+        "key": "TourOperatorOrTravelAgency",
+        "label": "Voyagiste"
+    },
+    {
+        "key": "TourismCableCar",
+        "label": "T\u00e9l\u00e9ph\u00e9rique touristique"
+    },
+    {
+        "key": "TourismCentre",
+        "label": "Maison du tourisme"
+    },
+    {
+        "key": "TouristBus",
+        "label": "Bus touristique"
+    },
+    {
+        "key": "TouristInformationCenter",
+        "label": "Service d'information touristique"
+    },
+    {
+        "key": "TouristTrain",
+        "label": "Train touristique"
+    },
+    {
+        "key": "Tower",
+        "label": "Tour"
+    },
+    {
+        "key": "TrackRollerOrSkateBoard",
+        "label": "Piste de roller ou de skate board"
+    },
+    {
+        "key": "Trader",
+        "label": "N\u00e9gociant"
+    },
+    {
+        "key": "TraditionalCelebration",
+        "label": "F\u00eate traditionnelle"
+    },
+    {
+        "key": "TrainStation",
+        "label": "Gare ferroviaire"
+    },
+    {
+        "key": "Traineeship",
+        "label": "Stage, atelier"
+    },
+    {
+        "key": "TrainingWorkshop",
+        "label": "Atelier de formation"
+    },
+    {
+        "key": "Trampoline",
+        "label": "Tremplin"
+    },
+    {
+        "key": "Transport",
+        "label": "Transport"
+    },
+    {
+        "key": "Transporter",
+        "label": "Transporteur"
+    },
+    {
+        "key": "TreeHouse",
+        "label": "Cabane dans les arbres"
+    },
+    {
+        "key": "TriumphalArch",
+        "label": "Arc de triomphe"
+    },
+    {
+        "key": "UnderwaterRoute",
+        "label": "Itin\u00e9raire sous-marin"
+    },
+    {
+        "key": "Valley",
+        "label": "Vall\u00e9e"
+    },
+    {
+        "key": "Velodrome",
+        "label": "V\u00e9lodrome"
+    },
+    {
+        "key": "ViaFerrata",
+        "label": "Via ferrata"
+    },
+    {
+        "key": "Visit",
+        "label": "Visite"
+    },
+    {
+        "key": "VisualArtsEvent",
+        "label": "Son et lumi\u00e8re, feu d'artifice"
+    },
+    {
+        "key": "VivariumAquarium",
+        "label": "Vivarium - Aquarium"
+    },
+    {
+        "key": "Volcano",
+        "label": "Volcan"
+    },
+    {
+        "key": "VolunteerTourGuideOrGreeter",
+        "label": "H\u00f4te b\u00e9n\u00e9vole, greeter"
+    },
+    {
+        "key": "WalkingTour",
+        "label": "Itin\u00e9raire p\u00e9destre"
+    },
+    {
+        "key": "WashHouse",
+        "label": "Lavoir"
+    },
+    {
+        "key": "WaterSource",
+        "label": "Point d'eau"
+    },
+    {
+        "key": "Waterfall",
+        "label": "Cascade"
+    },
+    {
+        "key": "Wetland",
+        "label": "Zone humide"
+    },
+    {
+        "key": "WifiHotSpot",
+        "label": "Hotspot Wifi"
+    },
+    {
+        "key": "WorkMeeting",
+        "label": "R\u00e9union de travail"
+    },
+    {
+        "key": "YachtClub",
+        "label": "Yacht Club"
+    },
+    {
+        "key": "YouthHostelAndInternationalCenter",
+        "label": "Auberge de jeunesse et centre international de s\u00e9jour"
+    },
+    {
+        "key": "Yurt",
+        "label": "Yourte"
+    },
+    {
+        "key": "ZooAnimalPark",
+        "label": "Zoo - parc animalier"
+    }
+]

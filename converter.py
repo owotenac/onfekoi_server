@@ -1,4 +1,4 @@
-
+import thesaurusdata
 
 def get_localized_text(data, field, lang='@fr', default='') -> str:
     """Safely extract localized text from nested structure."""
@@ -95,6 +95,12 @@ def cleanResponse(p: dict) -> list:
         if feature_methods:
             newProduct['features'] = feature_methods
 
+    types = p.get('type')
+    if (types) and len(types) > 0:
+        converted_types = extract_thesaurus(types)
+        if (converted_types):
+            newProduct['type'] = converted_types
+
     return newProduct
 
 
@@ -122,8 +128,8 @@ def extract_representations(data, lang='@fr'):
             continue
         
         # Extract credits and title from hasAnnotation
-        credits = ''
-        title = ''
+        credits: str = ''
+        title: str = ''
         if (rep.get('hasAnnotation') and 
             len(rep['hasAnnotation']) > 0 and 
             isinstance(rep['hasAnnotation'][0], dict)):
@@ -139,7 +145,7 @@ def extract_representations(data, lang='@fr'):
                 title = annotation['title'].get(lang, '')
         
         # Extract locator from hasRelatedResource
-        locator = ''
+        locator: str = ''
         if (rep.get('hasRelatedResource') and 
             len(rep['hasRelatedResource']) > 0 and 
             isinstance(rep['hasRelatedResource'][0], dict)):
@@ -185,7 +191,7 @@ def extract_location(data, lang='@fr'):
         addr = location_data['address'][0]
         
         # Get street address (first item from list)
-        street_address = ''
+        street_address: str = ''
         if addr.get('streetAddress') and len(addr['streetAddress']) > 0:
             street_address = addr['streetAddress'][0]
 
@@ -208,7 +214,7 @@ def extract_openingInfo(data, lang='@fr'):
     if not isinstance(openingInfo, dict):
         return None
     
-    info = ''
+    info: str = ''
     if openingInfo.get('additionalInformation') and isinstance(openingInfo['additionalInformation'], dict):
         info = openingInfo['additionalInformation'].get(lang, '')
 
@@ -218,3 +224,16 @@ def extract_openingInfo(data, lang='@fr'):
     result['additionalInformation'] = info
 
     return result
+
+def extract_thesaurus(types: dict):
+    """Extract thesaurus types as localized labels."""
+    types_list = []
+    for tag in types:
+        key = thesaurusdata.thesaurusData.get(tag)
+        if key and tag not in thesaurusdata.thesaurusDataToExclude: #we remove the useless tags
+            t = {}
+            t['key'] = tag
+            t['label'] = key
+            types_list.append(t)
+
+    return types_list
