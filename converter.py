@@ -30,16 +30,18 @@ def cleanResponses(response: dict) -> list:
 
 def cleanResponse(p: dict) -> list:
     #we only want products with main representation (image)
-    # Early return if no main representation
-    if not p.get('hasMainRepresentation'):
+    if p.get('hasMainRepresentation') is None:
         return {}
-
+    
     newProduct = {}
     newProduct['uuid'] = p['uuid']
     #name
     newProduct['name'] = get_localized_text(p, 'label')
-    #image
-    newProduct['image'] = p['hasMainRepresentation'][0]['hasRelatedResource'][0]['locator'][0]
+
+    if p.get('hasMainRepresentation'):
+        #image
+        newProduct['image'] = p['hasMainRepresentation'][0]['hasRelatedResource'][0]['locator'][0]
+
 
     # description
     has_desc = p.get('hasDescription')

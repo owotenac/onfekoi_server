@@ -2,43 +2,55 @@ import asyncio
 import api_call
 from flask import request
 
-catalogUrlMap = {
-    'catalog': 'https://api.datatourisme.fr/v1/catalog',
-    'poi': 'https://api.datatourisme.fr/v1/placeOfInterest',
-    'events': 'https://api.datatourisme.fr/v1/entertainmentAndEvent',
-    'tours': 'https://api.datatourisme.fr/v1/tour'
-}
+baseURL = 'https://api.datatourisme.fr/v1/catalog'
+
+mainFilters = {
+        'PointOfInterest' : 'CulturalSite,SportsAndLeisurePlace,NaturalHeritage,ServiceArea',
+        "RentalAccommodation" :'RentalAccommodation',
+        'Tour' : 'CyclingTour,WalkingTour,RoadTour',
+        'FoodEstablishment' : 'FoodEstablishment,Producer',
+        'EntertainmentAndEvent' : 'CulturalEvent,TheaterEvent,SportsEvent,Practice'
+        }
+
 
 def getItems():
+    params = {}
+
     #items
     type = request.args.get('type', type=str)
-    if (type is None):
+    if (type is None or type == ''):
         message = "type parameter is required"
         return { "error": message }, 400
-        
+
+    #as we use the catalog API, we filter on the given type
+    params['filters'] = f'type[in]={mainFilters[type]}'
+
    #filter
-    params = {}
     filters = request.args.get('filters', type=str)
     if (filters is not None):
         params['filters'] = f'type[in]={filters}'
 
-    if (type not in catalogUrlMap):
-        message = "type parameter is invalid"
-        return { "error": message }, 400
-    
-    url = catalogUrlMap[type]
 
-    response = asyncio.run(api_call.api_call(url, customParams=params))
+    response = asyncio.run(api_call.api_call(baseURL, customParams=params))
     return api_call.readElements(response)
 
 def searchItems():
+    params = {}
+
     #items
     type = request.args.get('type', type=str)
-    if (type is None):
+    if (type is None or type ==''):
         message = "type parameter is required"
         return { "error": message }, 400
 
-    params = {}
+    #as we use the catalog API, we filter on the given type
+    params['filters'] = f'type[in]={mainFilters[type]}'
+
+   #filter
+    filters = request.args.get('filters', type=str)
+    if (filters is not None):
+        params['filters'] = f'type[in]={filters}'
+
     #search
     search = request.args.get('search', type=str)
     if (search is None):
@@ -46,17 +58,6 @@ def searchItems():
         return { "error": message }, 400
     params['search'] = search
 
-    if (type not in catalogUrlMap):
-        message = "type parameter is invalid"
-        return { "error": message }, 400
-   
-    url = catalogUrlMap[type]
-
-   #filter
-    filters = request.args.get('filters', type=str)
-    if (filters is not None):
-        params['filters'] = f'type[in]={filters}'
-
-    response = asyncio.run(api_call.api_call(url , 
+    response = asyncio.run(api_call.api_call(baseURL , 
                            customParams= params))
     return api_call.readElements(response)
