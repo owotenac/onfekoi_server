@@ -85,5 +85,10 @@ def readElements(response, retrieveOptions: dict = None):
 
 def readDetails(response):
     
-    newResponse = converter.cleanResponse(response, retrieveOptions=defaultRetrieveOptions)
+    retrieveOptions = {
+        'nbResultsMax' : 20,
+        'skipRepresentation' : False
+    }
+
+    newResponse = converter.cleanResponse(response, retrieveOptions=retrieveOptions)
     return newResponse
