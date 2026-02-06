@@ -5,6 +5,7 @@ import asyncio
 import converter
 from flask import request
 import json
+from config import defaultRetrieveOptions
 
 # Create a cache with max 100 items, 1 hour TTL (3600 seconds)
 api_cache = TTLCache(maxsize=100, ttl=3600)
@@ -61,16 +62,20 @@ def getNextPage():
 
 import time
 
-def readElements(response):
+def readElements(response, retrieveOptions: dict = None):
+
+    if (retrieveOptions is None):
+        retrieveOptions = defaultRetrieveOptions
+
     start = time.time()
     r = {'data': [], 'meta': {}}
     nextPage = response.get('meta', {})
     
-    r['data'].extend(converter.cleanResponses(response))
+    r['data'].extend(converter.cleanResponses(response, retrieveOptions))
     
-    while response['meta'].get('next') and len(r['data']) < 5:
+    while response['meta'].get('next') and len(r['data']) < retrieveOptions['nbResultsMax']:
         response = asyncio.run(api_call(response['meta']['next']))
-        r['data'].extend(converter.cleanResponses(response))  
+        r['data'].extend(converter.cleanResponses(response, retrieveOptions))  
         nextPage = response.get('meta', {})
 
     r['meta'] = nextPage
@@ -80,5 +85,5 @@ def readElements(response):
 
 def readDetails(response):
     
-    newResponse = converter.cleanResponse(response)
+    newResponse = converter.cleanResponse(response, retrieveOptions=defaultRetrieveOptions)
     return newResponse

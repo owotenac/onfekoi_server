@@ -9,29 +9,17 @@ def get_localized_text(data, field, lang='@fr', default='') -> str:
         return field_data.get(lang, default)
     return default
 
-
-# def cleanResponses(response: dict, newResponse: list):
-#     for p in response['objects']:
-#         newProduct = cleanResponse(p)
-#         if len(newProduct) > 0:
-#             newResponse.append(newProduct)
-
-def cleanResponses(response: dict) -> list:
+def cleanResponses(response: dict, retrieveOptions) -> list:
     return [
         newProduct for p in response['objects']
-        if len(newProduct := cleanResponse(p)) > 0
+        if len(newProduct := cleanResponse(p, retrieveOptions)) > 0
     ]
 
-# def cleanResponses(response: dict, newResponse: list):
-#     cleaned = [cleanResponse(p) for p in response['objects']]
-#     newResponse.extend([p for p in cleaned if len(p) > 0])
-
-    #return r
-
-def cleanResponse(p: dict) -> list:
+def cleanResponse(p: dict, retrieveOptions) -> list:
     #we only want products with main representation (image)
-    if p.get('hasMainRepresentation') is None:
-        return {}
+    if (retrieveOptions['skipRepresentation']):
+        if p.get('hasMainRepresentation') is None:
+            return {}
     
     newProduct = {}
     newProduct['uuid'] = p['uuid']

@@ -1,5 +1,5 @@
 from details import getDetails
-from catalog import getItems, searchItems
+from catalog import getItems, searchItems, geolocation
 from flask_cors import CORS
 from flask import Flask
 from api_call import getNextPage
@@ -16,6 +16,9 @@ app.add_url_rule('/api/catalog', 'catalog', getItems)
 app.add_url_rule('/api/next_page', 'next_page', getNextPage)
 app.add_url_rule('/api/details', 'details', getDetails)
 app.add_url_rule('/api/search', 'search', searchItems)
+
+app.add_url_rule('/api/geolocation', 'geolocation', geolocation)
+
 
 CORS(app, resources={
     r"/*": {
