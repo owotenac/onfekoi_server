@@ -1,4 +1,6 @@
 import thesaurusdata
+from catalog import mainFilters
+
 
 def get_localized_text(data, field, lang='@fr', default='') -> str:
     """Safely extract localized text from nested structure."""
@@ -87,6 +89,9 @@ def cleanResponse(p: dict, retrieveOptions) -> list:
 
     types = p.get('type')
     if (types) and len(types) > 0:
+        #we try to find the main type
+        newProduct['mainType'] = get_main_type(types)
+        #we convert the thesauraus for readable content
         converted_types = extract_thesaurus(types)
         if (converted_types):
             newProduct['type'] = converted_types
@@ -227,3 +232,27 @@ def extract_thesaurus(types: dict):
             types_list.append(t)
 
     return types_list
+
+def get_main_type(api_types):
+    """
+    Extract the main type from API response types.
+    
+    Args:
+        api_types: List of types from API response
+        
+    Returns:
+        Main type string if found, None otherwise
+    """
+    api_types_set = set(api_types)
+    
+    for main_type, subtypes in mainFilters.items():
+        # Check if main type itself is in the response
+        if main_type in api_types_set and main_type not in thesaurusdata.thesaurusDataToExclude: #we remove the useless tags
+            return main_type
+        
+        # Check if any subtype matches
+        subtypes_set = set(subtypes.split(','))
+        if api_types_set & subtypes_set:  # Set intersection
+            return main_type
+    
+    return None

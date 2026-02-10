@@ -6,7 +6,7 @@ baseURL = 'https://api.datatourisme.fr/v1/catalog'
 
 mainFilters = {
         'PointOfInterest' : 'CulturalSite,SportsAndLeisurePlace,NaturalHeritage,ServiceArea',
-        "RentalAccommodation" :'RentalAccommodation',
+        "RentalAccommodation" :'RentalAccommodation,Accommodation,LodgingBusiness',
         'Tour' : 'CyclingTour,WalkingTour,RoadTour',
         'FoodEstablishment' : 'FoodEstablishment,Producer',
         'EntertainmentAndEvent' : 'CulturalEvent,TheaterEvent,SportsEvent,Practice'
@@ -23,7 +23,12 @@ def getItems():
         return { "error": message }, 400
 
     #as we use the catalog API, we filter on the given type
-    params['filters'] = f'type[in]={mainFilters[type]}'
+    filters = mainFilters.get(type, "")
+    if (filters ==''):
+        message = "type is unknown"
+        return { "error": message }, 400
+
+    params['filters'] = f'type[in]={filters}'
 
    #filter
     filters = request.args.get('filters', type=str)
@@ -44,7 +49,12 @@ def searchItems():
         return { "error": message }, 400
 
     #as we use the catalog API, we filter on the given type
-    params['filters'] = f'type[in]={mainFilters[type]}'
+    filters = mainFilters.get(type, "")
+    if (filters ==''):
+        message = "type is unknown"
+        return { "error": message }, 400
+
+    params['filters'] = f'type[in]={filters}'
 
    #filter
     filters = request.args.get('filters', type=str)
@@ -78,13 +88,23 @@ def geolocation():
         message = "type parameter is required"
         return { "error": message }, 400
 
-    #as we use the catalog API, we filter on the given type
-    params['filters'] = f'type[in]={mainFilters[type]}'
+    lat = request.args.get("lat", type=str)
+    lon = request.args.get("lon", type=str)
+    if (lat is None or lon is None):
+        message = "Missing geolocation parameters"
+        return { "error": message }, 400
+
+    #as we use the catalog API, we filter on the given type if we have it
+    if (type != "ALL"):
+        params['filters'] = f'type[in]={mainFilters[type]}'
 
    #filter
     filters = request.args.get('filters', type=str)
     if (filters is not None):
         params['filters'] = f'type[in]={filters}'
+
+    #bouding rect for geolocation
+    params['geo_bounding'] = f"{lat},3.834347,{lon},3.984922"
 
     #get only the geolocation
     params['fields'] = 'uuid,label,type,isLocatedAt.geo'
