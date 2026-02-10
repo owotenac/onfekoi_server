@@ -40,6 +40,8 @@ def cleanResponse(p: dict, retrieveOptions) -> list:
         #description
         newProduct['description'] = get_localized_text(desc, 'description')
         newProduct['shortDescription'] = get_localized_text(desc, 'shortDescription')
+    else:
+        return {}
 
     #contact
     has_contact = p.get('hasContact')

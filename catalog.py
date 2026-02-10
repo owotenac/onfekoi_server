@@ -107,7 +107,7 @@ def geolocation():
     params['geo_bounding'] = f"{lat},3.834347,{lon},3.984922"
 
     #get only the geolocation
-    params['fields'] = 'uuid,label,type,isLocatedAt.geo'
+    params['fields'] = 'uuid,label,type,isLocatedAt.geo,hasDescription'
 
     params['page_size'] = '100'
 
