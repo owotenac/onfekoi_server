@@ -258,3 +258,19 @@ def get_main_type(api_types):
             return main_type
     
     return None
+
+import math
+
+def getBoundingBox(lat: float, lon: float, distanceKm: float = 10.0):
+    lat = float(lat)
+    lon = float(lon)
+
+    latOffset = distanceKm / 111.0
+    lonOffset = distanceKm / (111.0 * math.cos(math.radians(lat)))
+
+    north = lat + latOffset
+    south = lat - latOffset
+    east  = lon + lonOffset
+    west  = lon - lonOffset
+
+    return f"{north},{west},{south},{east}"

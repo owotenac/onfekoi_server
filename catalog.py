@@ -1,6 +1,7 @@
 import asyncio
 import api_call
 from flask import request
+import converter
 
 baseURL = 'https://api.datatourisme.fr/v1/catalog'
 
@@ -104,7 +105,8 @@ def geolocation():
         params['filters'] = f'type[in]={filters}'
 
     #bouding rect for geolocation
-    params['geo_bounding'] = f"{lat},3.834347,{lon},3.984922"
+    bouding_box = converter.getBoundingBox(lat, lon)
+    params['geo_bounding'] = bouding_box
 
     #get only the geolocation
     params['fields'] = 'uuid,label,type,isLocatedAt.geo,hasDescription'
