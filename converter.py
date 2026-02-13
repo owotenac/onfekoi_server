@@ -19,9 +19,9 @@ def cleanResponses(response: dict, retrieveOptions) -> list:
 
 def cleanResponse(p: dict, retrieveOptions) -> list:
     #we only want products with main representation (image)
-    if (retrieveOptions['skipRepresentation']):
-        if p.get('hasMainRepresentation') is None:
-            return {}
+    # if (retrieveOptions['skipRepresentation']):
+    #     if p.get('hasMainRepresentation') is None:
+    #         return {}
     
     newProduct = {}
     newProduct['uuid'] = p['uuid']
@@ -40,8 +40,8 @@ def cleanResponse(p: dict, retrieveOptions) -> list:
         #description
         newProduct['description'] = get_localized_text(desc, 'description')
         newProduct['shortDescription'] = get_localized_text(desc, 'shortDescription')
-    else:
-        return {}
+    # else:
+    #     return {}
 
     #contact
     has_contact = p.get('hasContact')

@@ -37,6 +37,7 @@ async def p_api_call(url: str, customParams: dict = None):
     params = {
         'department': '34',
         'lang': 'fr',
+        'sort' : 'lastUpdate[desc]',
         **(customParams or {})  # Unpack customParams, or empty dict if None
     }
   

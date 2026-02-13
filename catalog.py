@@ -77,7 +77,7 @@ def searchItems():
 def geolocation():
 
     retrieveOptions = {
-        'nbResultsMax' : 20,
+        'nbResultsMax' : 50,
         'skipRepresentation' : False
     }
 
@@ -111,7 +111,7 @@ def geolocation():
     #get only the geolocation
     params['fields'] = 'uuid,label,type,isLocatedAt.geo,hasDescription'
 
-    params['page_size'] = '100'
+    params['page_size'] = retrieveOptions['nbResultsMax']
 
     response = asyncio.run(api_call.api_call(baseURL, customParams=params))
     return api_call.readElements(response, retrieveOptions)
