@@ -77,7 +77,7 @@ def searchItems():
 def geolocation():
 
     retrieveOptions = {
-        'nbResultsMax' : 50,
+        'nbResultsMax' : 100,
         'skipRepresentation' : False
     }
 
