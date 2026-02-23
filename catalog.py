@@ -38,6 +38,9 @@ def getItems():
 
 
     response = asyncio.run(api_call.api_call(baseURL, customParams=params))
+    if isinstance(response, tuple) and response[1] != 200:
+        return response
+        
     return api_call.readElements(response)
 
 def searchItems():
@@ -71,6 +74,9 @@ def searchItems():
 
     response = asyncio.run(api_call.api_call(baseURL , 
                            customParams= params))
+    if isinstance(response, tuple) and response[1] != 200:
+        return response
+        
     return api_call.readElements(response)
 
 
@@ -114,4 +120,7 @@ def geolocation():
     params['page_size'] = retrieveOptions['nbResultsMax']
 
     response = asyncio.run(api_call.api_call(baseURL, customParams=params))
+    if isinstance(response, tuple) and response[1] != 200:
+        return response
+    
     return api_call.readElements(response, retrieveOptions)

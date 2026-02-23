@@ -14,17 +14,21 @@ def get_cache_key(url, customParams):
     """Generate a unique cache key from URL"""
     return hashlib.md5(url.encode() + json.dumps(customParams).encode() ).hexdigest()
 
-async def api_call(url:str, customParams: dict = None):
-    use_cache=True
+async def api_call(url: str, customParams: dict = None):
+    use_cache = True
     """API call with caching support"""
     cache_key = get_cache_key(url, customParams)
-    
+
     if use_cache and cache_key in api_cache:
         print(f"Cache hit for {url} and {json.dumps(customParams)}")
         return api_cache[cache_key]
-    
+
     print(f"Cache miss for {url} and {json.dumps(customParams)}")
     response = await p_api_call(url, customParams)
+
+    if isinstance(response, tuple) and response[1] != 200:
+        return response
+
     api_cache[cache_key] = response
     return response
 
@@ -37,19 +41,25 @@ async def p_api_call(url: str, customParams: dict = None):
     params = {
         'department': '34',
         'lang': 'fr',
-        'sort' : 'lastUpdate[desc]',
-        **(customParams or {})  # Unpack customParams, or empty dict if None
+        'sort': 'lastUpdate[desc]',
+        **(customParams or {})
     }
-  
-        
+
     print(f"Fetching URL: {url} with params: {params}")
+
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url, headers=headers, params=params) as response:
+                response.raise_for_status()
+                data = await response.json()
+                return data
+    except aiohttp.ClientResponseError as e:
+        print(f"Error fetching URL: {url} with {e.code}")
+        return {"error": str(e.message)}, e.status
+    except Exception as e:
+        print(f"Error fetching URL: {url} with {e}")
+        return {"error": str(e)}, 500
     
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url, headers=headers, params=params) as response:
-            response.raise_for_status()
-            data = await response.json()
-            return data
-        
 
 def getNextPage():
     #url
