@@ -36,6 +36,13 @@ def getItems():
     if (filters is not None):
         params['filters'] = f'type[in]={filters}'
 
+    #geolocalized request
+    lat = request.args.get("lat", type=str)
+    lon = request.args.get("lon", type=str)
+    if (lat is not None and lon is not None):
+        bouding_box = converter.getBoundingBox(lat, lon)
+        params['geo_bounding'] = bouding_box
+
 
     response = asyncio.run(api_call.api_call(baseURL, customParams=params))
     if isinstance(response, tuple) and response[1] != 200:
@@ -60,7 +67,7 @@ def searchItems():
 
     params['filters'] = f'type[in]={filters}'
 
-   #filter
+    #filter
     filters = request.args.get('filters', type=str)
     if (filters is not None):
         params['filters'] = f'type[in]={filters}'
@@ -72,6 +79,13 @@ def searchItems():
         return { "error": message }, 400
     params['search'] = search
 
+    #geolocalized request
+    lat = request.args.get("lat", type=str)
+    lon = request.args.get("lon", type=str)
+    if (lat is not None and lon is not None):
+        bouding_box = converter.getBoundingBox(lat, lon)
+        params['geo_bounding'] = bouding_box
+        
     response = asyncio.run(api_call.api_call(baseURL , 
                            customParams= params))
     if isinstance(response, tuple) and response[1] != 200:
