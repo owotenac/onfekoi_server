@@ -39,7 +39,7 @@ async def p_api_call(url: str, customParams: dict = None):
         "X-API-Key": "72f08dd4-6eca-443b-aba3-5d650abc28da"
     }
     params = {
-        'department': '34',
+        #'department': '34',
         'lang': 'fr',
         'sort': 'lastUpdate[desc]',
         **(customParams or {})

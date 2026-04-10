@@ -6,9 +6,9 @@ import converter
 baseURL = 'https://api.datatourisme.fr/v1/catalog'
 
 mainFilters = {
-        'PointOfInterest' : 'CulturalSite,SportsAndLeisurePlace,NaturalHeritage,ServiceArea',
+        'PointOfInterest' : 'CulturalSite,NaturalHeritage,ServiceArea',
         "RentalAccommodation" :'RentalAccommodation,Accommodation,LodgingBusiness',
-        'Tour' : 'CyclingTour,WalkingTour,RoadTour',
+        'Tour' : 'CyclingTour,WalkingTour,RoadTour,SportsAndLeisurePlace',
         'FoodEstablishment' : 'FoodEstablishment,Producer',
         'EntertainmentAndEvent' : 'CulturalEvent,TheaterEvent,SportsEvent,Practice'
         }
@@ -30,6 +30,13 @@ def getItems():
         return { "error": message }, 400
 
     params['filters'] = f'type[in]={filters}'
+
+    #departement
+    departement = request.args.get('departement', type=str)
+    if (departement is not None):
+        params['department'] = departement
+    else:
+        params['department'] = '34' #to keep the compatibility with the old API
 
    #filter
     filters = request.args.get('filters', type=str)
@@ -71,6 +78,13 @@ def searchItems():
     filters = request.args.get('filters', type=str)
     if (filters is not None):
         params['filters'] = f'type[in]={filters}'
+
+    #departement
+    departement = request.args.get('departement', type=str)
+    if (departement is not None):
+        params['department'] = departement
+    else:
+        params['department'] = '34' #to keep the compatibility with the old API
 
     #search
     search = request.args.get('search', type=str)

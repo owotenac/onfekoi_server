@@ -18,87 +18,105 @@ def cleanResponses(response: dict, retrieveOptions) -> list:
     ]
 
 def cleanResponse(p: dict, retrieveOptions) -> list:
-    #we only want products with main representation (image)
-    # if (retrieveOptions['skipRepresentation']):
-    #     if p.get('hasMainRepresentation') is None:
-    #         return {}
-    
-    newProduct = {}
-    newProduct['uuid'] = p['uuid']
-    #name
-    newProduct['name'] = get_localized_text(p, 'label')
-
-    if p.get('hasMainRepresentation'):
-        #image
-        newProduct['image'] = p['hasMainRepresentation'][0]['hasRelatedResource'][0]['locator'][0]
 
 
-    # description
-    has_desc = p.get('hasDescription')
-    if has_desc and len(has_desc) > 0:
-        desc = has_desc[0]
-        #description
-        newProduct['description'] = get_localized_text(desc, 'description')
-        newProduct['shortDescription'] = get_localized_text(desc, 'shortDescription')
-    # else:
-    #     return {}
+    try:    
+        newProduct = {}
+        newProduct['uuid'] = p['uuid']
+        #name
+        newProduct['name'] = get_localized_text(p, 'label')
 
-    #contact
-    has_contact = p.get('hasContact')
-    if has_contact and len(has_contact) > 0:
-        contact = has_contact[0]
-        newProduct['contact'] = {'name': contact.get('legalName', '')}
-        
-        for field in ['telephone', 'email', 'homepage']:
-            if field in contact:
-                newProduct['contact'][field] = contact[field][0]
-    #created by
-    created_by = p.get('hasBeenCreatedBy')
-    if created_by:
-        newProduct['createdBy'] = created_by['legalName'][5:] #because we remove the 34 - departement code
+        if p.get('hasMainRepresentation'):
+            #image
+            newProduct['image'] = p['hasMainRepresentation'][0]['hasRelatedResource'][0]['locator'][0]
 
-    #address
-    isLocatedAt = p.get('isLocatedAt')
-    if (isLocatedAt):
-        location = extract_location(p)
-        if location:
-            newProduct['address'] = location
-        #opening hours are located in isLocatedAt
-        opening = extract_openingInfo(isLocatedAt[0])
-        if opening:
-            newProduct['openingInfo'] = opening
 
-    #offer
-    offers = p.get('offers')
-    if offers and len(offers) > 0:
-        offer = offers[0]
-        payment_methods = extract_methods(offer, 'acceptedPaymentMethod')
-        if payment_methods:
-            newProduct['acceptedPaymentMethod'] = payment_methods
+        # description
+        has_desc = p.get('hasDescription')
+        if has_desc and len(has_desc) > 0:
+            desc = has_desc[0]
+            #description
+            newProduct['description'] = get_localized_text(desc, 'description')
+            newProduct['shortDescription'] = get_localized_text(desc, 'shortDescription')
+        # else:
+        #     return {}
 
-    #picture
-    if (p.get('hasRepresentation')):
-        representations = extract_representations(p)
-        if representations:
-            newProduct['hasRepresentation'] = representations
+        #contact
+        newProduct['contact'] = {}
+        has_contact = p.get('hasContact')
+        if has_contact and len(has_contact) > 0:
+            contact = has_contact[0]
+            newProduct['contact'] = {'name': contact.get('legalName', '')}
+            
+            for field in ['telephone', 'email', 'homepage']:
+                if field in contact:
+                    newProduct['contact'][field] = contact[field][0]
+        #created by
+        created_by = p.get('hasBeenCreatedBy')
+        if created_by:
+            newProduct['createdBy'] = created_by['legalName']
 
-    features = p.get('hasFeature')
-    if (features) and len(features) > 0:
-        f = features[0]
-        feature_methods = extract_methods(f, 'features')
-        if feature_methods:
-            newProduct['features'] = feature_methods
+        #address
+        isLocatedAt = p.get('isLocatedAt')
+        if (isLocatedAt):
+            location = extract_location(p)
+            if location:
+                newProduct['address'] = location
+            #opening hours are located in isLocatedAt
+            opening = extract_openingInfo(isLocatedAt[0])
+            if opening:
+                newProduct['openingInfo'] = opening
 
-    types = p.get('type')
-    if (types) and len(types) > 0:
-        #we try to find the main type
-        newProduct['mainType'] = get_main_type(types)
-        #we convert the thesauraus for readable content
-        converted_types = extract_thesaurus(types)
-        if (converted_types):
-            newProduct['type'] = converted_types
+        #offer
+        offers = p.get('offers')
+        if offers and len(offers) > 0:
+            offer = offers[0]
+            payment_methods = extract_methods(offer, 'acceptedPaymentMethod')
+            if payment_methods:
+                newProduct['acceptedPaymentMethod'] = payment_methods
 
-    return newProduct
+        #picture
+        if (p.get('hasRepresentation')):
+            representations = extract_representations(p)
+            if representations:
+                newProduct['hasRepresentation'] = representations
+
+        features = p.get('hasFeature')
+        if (features) and len(features) > 0:
+            f = features[0]
+            feature_methods = extract_methods(f, 'features')
+            if feature_methods:
+                newProduct['features'] = feature_methods
+
+        types = p.get('type')
+        if (types) and len(types) > 0:
+            #we try to find the main type
+            newProduct['mainType'] = get_main_type(types)
+            #we convert the thesauraus for readable content
+            converted_types = extract_thesaurus(types)
+            if (converted_types):
+                newProduct['type'] = converted_types
+
+        #practice
+        practice_conditions = extract_practice_condition(p)
+        if practice_conditions:
+            newProduct['practiceCondition'] = practice_conditions
+
+        #we make sure hasReprensation has only images, and move gpx or pdf file to the practice condition
+        gpx_files = []
+        if (newProduct.get('hasRepresentation')):
+            gpx_files = [rep for rep in newProduct['hasRepresentation'] if rep['locator'].endswith('.gpx') or rep['locator'].endswith('.pdf')]
+            newProduct['hasRepresentation'] = [rep for rep in newProduct['hasRepresentation'] if rep['type'] == 'image' or rep['locator'].endswith('.png') or rep['locator'].endswith('.jpg')]
+        if (gpx_files and newProduct.get('practiceCondition')):
+            newProduct['practiceCondition']['hasRepresentation'] = gpx_files
+        elif (gpx_files):
+            newProduct['practiceCondition'] = {'hasRepresentation' : gpx_files}
+
+
+        return newProduct
+    except Exception as e:
+        print(e)
+        return {}
 
 
 def extract_methods(data, key, lang='@fr'):
@@ -141,24 +159,78 @@ def extract_representations(data, lang='@fr'):
             if annotation.get('title') and isinstance(annotation['title'], dict):
                 title = annotation['title'].get(lang, '')
         
-        # Extract locator from hasRelatedResource
-        locator: str = ''
-        if (rep.get('hasRelatedResource') and 
-            len(rep['hasRelatedResource']) > 0 and 
-            isinstance(rep['hasRelatedResource'][0], dict)):
-            
-            resource = rep['hasRelatedResource'][0]
-            if resource.get('locator') and len(resource['locator']) > 0:
-                locator = resource['locator'][0]
-        
-        # Only add if we have at least a locator
-        if locator:
-            result.append({
-                'credits': credits,
-                'title': title,
-                'locator': locator
-            })
+        # Extract locator and mime type from hasRelatedResource
+        if rep.get('hasRelatedResource') and isinstance(rep['hasRelatedResource'], list):
+            for resource in rep['hasRelatedResource']:
+                if not isinstance(resource, dict):
+                    continue
+                
+                res_type: str = ''
+                if (resource.get('hasMimeType') and 
+                    isinstance(resource['hasMimeType'], list) and 
+                    len(resource['hasMimeType']) > 0 and 
+                    isinstance(resource['hasMimeType'][0], dict)):
+                    
+                    mime_label = resource['hasMimeType'][0].get('label')
+                    if isinstance(mime_label, dict):
+                        res_type = mime_label.get(lang, '')
+
+                if resource.get('locator') and isinstance(resource['locator'], list) and len(resource['locator']) > 0:
+                    locator = resource['locator'][0]
+                        
+                    result.append({
+                        'credits': credits,
+                        'title': title,
+                        'locator': locator,
+                        'type': res_type
+                    })
     
+    return result
+
+
+def extract_practice_condition(data, lang='@fr'):
+    """Extract practice conditions including duration, locomotion mode, difficulty and representations."""
+    if not data.get('hasPracticeCondition') or len(data['hasPracticeCondition']) == 0:
+        return None
+
+    cond = data['hasPracticeCondition'][0]    
+        
+    result = {}
+    if 'durationDays' in cond:
+        result['durationDays'] = str(cond['durationDays'])
+        
+    if 'duration' in cond:
+        result['duration'] = str(cond['duration'])
+        
+    if cond.get('hasLocomotionMode') and len(cond['hasLocomotionMode']) > 0:
+        mode = cond['hasLocomotionMode'][0]
+        if isinstance(mode, dict):
+            result['locomotionMode'] = {
+                'label': mode.get('label', {}).get(lang, ''),
+                'key': mode.get('key', '')
+            }
+            
+    if cond.get('hasDifficultyLevel') and len(cond['hasDifficultyLevel']) > 0:
+        level = cond['hasDifficultyLevel'][0]
+        if isinstance(level, dict):
+            result['difficultyLevel'] = {
+                'label': level.get('label', {}).get(lang, ''),
+                'key': level.get('key', '')
+            }
+    #here we "should" have the gpx file
+    if cond.get('hasRepresentation'):
+        reps = extract_representations(cond, lang)
+        if reps:
+            result['hasRepresentation'] = reps
+    # else:
+    #     #sometimes we have the gpx here => move it to praticalcondition
+    #     if (resource['locator'][0].endswith('.gpx')):
+    #         r = {}
+    #         r['locator'] = resource['locator'][0]
+    #         data['hasPracticeCondition'][0]['hasRepresentation'] = []
+    #         data['hasPracticeCondition'][0]['hasRepresentation'].append(r)
+                
+       
     return result
 
 def extract_location(data, lang='@fr'):
